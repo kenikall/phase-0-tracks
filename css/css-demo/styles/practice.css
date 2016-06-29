@@ -7,3 +7,6 @@ section.job {
 	border-radius: 25px;
 	margin-bottom: 10px;
 }
+ul.small-text{
+	font-size: .8em;
+}
