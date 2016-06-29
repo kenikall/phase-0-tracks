@@ -10,3 +10,9 @@ section.job {
 ul.small-text{
 	font-size: .8em;
 }
+ul:hover{
+	color: red;
+}
+#work-experience h3{
+	color: blue;
+}
