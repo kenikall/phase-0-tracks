@@ -1,5 +1,15 @@
-.octopus{
-	margin-top: 20px;
-	vertical-align: center;
-	background: red; 
+#octopus{
+	margin-top: 50px;
+	margin-left: 40%;
+	}
+#hat{
+	position: absolute;
+	top: 15px;
+	left: 38%;
+}
+
+#glasses{
+	position: absolute;
+	top: 160px;
+	left: 45%;
 }
