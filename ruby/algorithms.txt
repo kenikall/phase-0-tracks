@@ -1,0 +1,32 @@
+Operating an Elevator
+1. Identify what floor you are currently on
+2. Ask the user what floor they would like to go to
+3.a If the floor number is greater than the floor you are on press the up button
+3.b If the floor number is less than the floor you are on press the down button
+3.c If the floor number is the same as the floor you are on tell the user "You are already here" and exit program
+
+4. Prompt the user to indicate when hey are on the elevator
+5. Once they do find the button that matches the floor they intend to travel to and push that button
+6. Once you reach that floor ask the user if they are happy with their floor
+7.a If they are wish them well and exit program
+7.b If they are not ask them which follor they would like to go to instead and restart the program at stpe 3.
+
+Making a Peanut Butter and jelly Sandwich 
+1. Make sure you have bread, peanut butter, jelly, and a butter knife. If any of these items are missing get them from their storage locations
+2. Open the bread bag and lay 2 slices of bread on your work surface
+3. Open the jar of peanut butter
+4. Dip the butter knife into the peanut butter jar and extract 2 tablespoons of peanut butter
+5. Using the bread knife spread the peanut butter evenly on one of the slices of bread
+6. Scrape as much excess peanut butter off the knife onto the lip of the peanut butter jar as possible
+7. (do not lick the knife, that is gross)
+8. Put the lid back on the peanut butter jar
+9. Open the jelly jar
+10. Using the bread knife spread the jelly evenly on one of the slice of bread without peanut butter
+11. Scrape as much excess jelly off the knife onto the lip of the jelly jar as possible
+12. (it is okay to lick the knife now since it won't be going in any more jars)
+13. Close the jelly jar 
+14. Clean, rinse, and dry the knife
+15. Put the knife away
+16. Put the peanut butter and jelly jars away
+17. Put the jelly covered slice of bread on top of the peanut butter covered slice of bread jelly side down.
+18. Exit program, you have a sandwich
