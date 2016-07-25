@@ -14,4 +14,12 @@
 class Puppy
 end
 
-p Puppy.methods 
+duchess = Puppy.new
+fido = Puppy.new
+spot = Puppy.new
+
+p "spot.class = #{spot.class}"
+p "duchess == fido = #{duchess == fido}"
+p "fido.instance_of?(Array)  = #{fido.instance_of?(Array)}"
+p "fido.instance_of?(Puppy) = #{fido.instance_of?(Puppy)}"
+p "spot.play_dead = #{spot.play_dead}"
