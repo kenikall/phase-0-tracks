@@ -23,13 +23,41 @@ def vowel_change(name)
 			end
 		}
 		name[i] = modary.join
-	i += 1
+		i += 1
 	end
-	p name
 	return name
 end
-puts "Enter spy name"
-name = gets.chomp.split
-name[0], name[1] = name[1], name[0] 
-name = vowel_change(name)
-p name
+
+def consonant_change(name)
+	alpha = "bcdfghjklmnpqrstvwxyz".chars
+	i = 0
+	while i<=name.length-1 
+		name[i] = name[i].downcase
+		modary = name[i].chars
+		modary.each_index{|x|
+			if alpha.index(modary[x]) != nil
+				modary[x] = alpha[alpha.index(modary[x])+1]
+			end
+		}
+		modary[0] = modary[0].upcase
+		name[i] = modary.join
+		i += 1
+	end
+	return name
+end
+
+getnames = true
+code_hash = {}
+while getnames	
+	puts "Enter spy name, or type 'quit' to quit."
+	name = gets.chomp
+	if name == "quit"
+		getnames = false
+	else
+		codename = name.split
+		codename[0], codename[1] = codename[1], codename[0]
+		codename = consonant_change(vowel_change(codename)).join(" ").to_s
+		code_hash.store(name, codename)
+	end
+end
+code_hash.each{|key, value| puts "#{key} will go by the name #{value}."}
