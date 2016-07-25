@@ -6,27 +6,30 @@ Psudocode
 =end
 def vowel_change(name)
 	i = 0
-	while i<=name.length
-		p name
+	while i<=name.length-1 
 		modary = name[i].chars
 	
-		modary.each{|letter|
-			if letter.downcase == "a"
-				letter = "e"
-			elsif letter.downcase == "e"
-				letter = "i"
-			elsif letter.downcase == "i"
-				letter = "o"
-			elsif letter.downcase == "o"
-				letter = "u"
-			elsif letter.downcase == "u"
-				letter = "a"
+		modary.each_index{|letter|
+			if modary[letter].downcase == "a"
+				modary[letter] = "e"
+			elsif modary[letter].downcase == "e"
+				modary[letter] = "i"
+			elsif modary[letter].downcase == "i"
+				modary[letter] = "o"
+			elsif modary[letter].downcase == "o"
+				modary[letter] = "u"
+			elsif modary[letter].downcase == "u"
+				modary[letter] = "a"
 			end
 		}
+		name[i] = modary.join
 	i += 1
 	end
+	p name
+	return name
 end
 puts "Enter spy name"
 name = gets.chomp.split
 name[0], name[1] = name[1], name[0] 
-vowel_change(name)
+name = vowel_change(name)
+p name
