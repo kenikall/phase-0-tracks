@@ -3,15 +3,15 @@ require_relative 'hangman'
 describe Hangman do
   let(:hangman) { Hangman.new }
 
-  it "adds two integers" do
-    expect(calculator.add(3,4)).to eq 7
+  it "Picks a random word with less than 5 letters" do
+    expect(hangman.setup("easy")).be < 5
   end
 
-  it "subtracts two integers" do
-    expect(calculator.subtract(7,1)).to eq 6
+  it "Picks a random word with 5 letters" do
+    expect(hangman.setup("medium")).to eq 5
   end
 
-  it "multiplies two integers" do
-    expect(calculator.multiply(2,3)).to eq 6
+  it "Picks a random word with more than 5 letters" do
+    expect(hangman.setup("hard")).be > 5
   end
 end
