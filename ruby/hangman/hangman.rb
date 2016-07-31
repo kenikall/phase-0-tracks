@@ -1,11 +1,12 @@
 class Hangman
-	#make array of guesses readable and writable by player
+	attr_reader :gamestate
+	
 	def initialize(difficulty) #start game of user defined difficulty
-		@wrong_ctr = 0 #make wrong couter = 0
+		@numcorrect = 0 #number of letters the user has guessed correctly 
 		@letters = {} # make an empty hash that will represent the word
 		@word = [] #word the user is trying to guess 
-		#make won state false
-		#make lost state false
+		@not_in_word = [] #array of letters guessed, but not in word
+		@gamestate = true #while true game is not over
 		setup(difficulty) #setup game with random word
 	end
 
@@ -29,47 +30,54 @@ class Hangman
 	end 
 
 	def clues #shows user correctly and incorrectly guessed letters
+		
 		show = "" #display string
 		@word.each{|x|
 			if @letters[x] #if letter has been guessed put letter in string
-				show += x.toupper
+				show += x.upcase
+				show += "  "
 			else #if letter has not been guessed put __ in string
 				show += " __ "
 			end
 		}
 		puts show #show how much of the word has been guessed
+		if @not_in_word.empty?
+		else
+			puts"\n"
+			puts "Not in word: #{@not_in_word.to_s}"
+		end
 	end
 
 	def progress #shows how close the man is to being hung
 		puts "_________"
 		puts "|       |"
-		if @wrong_ctr >=8
+		if @not_in_word.count >=8
 			puts "|       @"
-		elsif @wrong_ctr >= 1 
+		elsif @not_in_word.count >= 1 
 			puts "|       O"
 		else 
 			puts "|"
 		end
 
-		if @wrong_ctr >= 4
+		if @not_in_word.count >= 4
 			puts "|      /:\\ "
-		elsif @wrong_ctr >= 3
+		elsif @not_in_word.count >= 3
 			puts "|      /:"
-		elsif @wrong_ctr >= 2
+		elsif @not_in_word.count >= 2
 			puts "|      /"
 		else
 			puts "|"
 		end
 		
-		if @wrong_ctr >= 5
+		if @not_in_word.count >= 5
 			puts "|       |"
 		else 
 			puts "|"
 		end
 
-		if @wrong_ctr >= 7
+		if @not_in_word.count >= 7
 			puts "|      / \\ "
-		elsif @wrong_ctr >=6
+		elsif @not_in_word.count >=6
 			puts "|      /"
 		else
 			puts "|"
@@ -77,22 +85,51 @@ class Hangman
 		
 		puts "|_______________"
 
-		#shows incorrect choices
-		clues()
-
+		clues() #shows incorrect choices
 	end
 
 	def check(guess) #check user input against word they are trying to guess
-		#checks to see if guess is in the word
-		#prints either __ or correct letters
+		correct = false
+		p @letters	
+		if @word.include?(guess) #checks to see if guess is in the word
+			p guess
+			@letters[guess] = true
+			@numcorrect += 1
+		else
+			@not_in_word << guess
+		end
+		endgame() #checks if game is over
 	end
 
-	def gamestate
-		#checks to see if game is won or lost
+	def endgame
+		p "not in word = #{@not_in_word.count}"
+		p "number correct = #{@numcorrect}/#{@word.count}"
+		if @not_in_word.count >= 7 #losing message
+			puts "Your man has been hanged..."
+			progress()
+			puts "You guessed #{@numcorrect} letters correct in #{@numcorrect+8} tries."
+			@game = false
+		elsif @numcorrect == @word.count #winning message
+			puts "Congrats, your hangman recieved a stay of execution!"
+			progress()	
+			@gamestate = false
+		else #ifgame is not over show progress
+			progress()
+			
+		end
 		#prints winning message and game data
 		#prints losing message and game data
 	end 
 end
 
 #DRIVER CODE
-game = Hangman.new("hard")
+ puts "Difficulty?"
+ difficulty = gets.chomp
+ game = Hangman.new(difficulty)
+
+ while game.gamestate
+ 	puts "Choose a letter"
+ 	choice = gets.chomp.downcase
+ 	game.check(choice)
+ end
+#game.progress()
