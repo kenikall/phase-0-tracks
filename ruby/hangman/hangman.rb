@@ -94,7 +94,10 @@ class Hangman
 				@numcorrect += 1
 			end
 		else
-			@not_in_word << guess
+			if @not_in_word.include?(guess) 
+			else
+				@not_in_word << guess
+			end
 		end
 		endgame() #checks if game is over
 	end
@@ -119,9 +122,6 @@ end
 
 
 	
-rescue Exception => e
-	
-end
 alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] #define valid input
 
 puts "Welcome to hangman what difficulty would you like to try?"#prompt user for difficlty
