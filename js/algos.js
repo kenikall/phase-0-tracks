@@ -32,22 +32,24 @@ function key_value_check (test1, test2) //take in 2 objects
 	return(false); //if you are done looping and there are no matches return false
 }
 
-// Write a function that takes an integer for length, and builds and returns an array of strings of the given length. 
-// So if we ran your function with an argument of 3, we would get an array of 3 random words back 
-// (the words don't have to be actual sensical English words -- "nnnnfph" totally counts). The words should be of randomly 
-// varying length, with a minimum of 1 letter and a maximum of 10 letters. (This involves a new trick, generating a random number, 
-// 	that you'll have to look up, but the solution on how to do so is relatively straightforward.)
-// Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word"
-// function, and prints the result.
-
-functon write_strings(how_long)
+function write_strings (how_long) //get number of words
 {
-	//make empty array
-	//loop based on function input
-	//create random word
-	//put random word into array
+	var rand_ary = []; //make empty array
+	var possible = "abcdefghijklmnopqrstuvwxyz"; //possible chars in random string
+	var letters = 0 //initalize random number of letters in word to 0
 
-	//return array
+	for (var i = 0; i <= how_long; i++) //make array whose length is based on function input
+	{
+		string = "" //start with new string every time
+		letters = Math.floor((Math.random() * 10) + 1); //randomize number of letters in word
+		for( var k=0; k < letters; k++ ) //make word
+  		{
+        	string += possible.charAt(Math.floor(Math.random() * possible.length)); //make word have random letters and random length
+   		}
+		
+		rand_ary.push(string); //put random word into array
+	}
+	return(rand_ary);
 }
 
 
@@ -78,3 +80,6 @@ var object1 = {friend: "Tamir", age: 30};
 var object2 = {name: "Tamir", age: 54};
 
 console.log(key_value_check (object1, object2))
+ary = write_strings(10);
+console.log(ary);
+console.log(longest_word(ary));
