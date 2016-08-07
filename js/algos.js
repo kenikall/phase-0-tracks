@@ -22,11 +22,23 @@ function longest_word(ary)//take in array
 
 function key_value_check (test1, test2) //take in 2 objects
 {
-	//loop throught the properties of the first object
-	//loop through the properties of the second object
-	//test to see if the values match
-	//if there is a match return true
-	//if you are done looping and there are no matches return false
+	var test1_keys = Object.keys(test1); //make an array of the keys in the first argument
+	var test2_keys = Object.keys(test2); //make an array of the keys in the second argument
+
+	for (var i = 0; i <= test1_keys.length-1; i++) //loop throught the properties of the first object
+	{
+		for (var k = 0; k <= test2_keys.length-1; k++) //loop through the properties of the second object
+		{
+			if (test1_keys[i] == test2_keys[k]) //test to see if the keys match
+			{
+				if (test1[test1_keys[i]] == test2[test2_keys[k]])//test to see if the values match
+				{
+					return(true); //if there is a match return true
+				}
+			}	
+		}
+	}
+	return(false); //if you are done looping and there are no matches return false
 }
 
 //DRIVER CODE
@@ -35,3 +47,23 @@ console.log(longest_word(["0", "00", "000", "0000"]));
 console.log(longest_word(["0000", "000", "00", "0"]));
 
 console.log(longest_word(["00","0","0000", "000"]));
+
+var object1 = {name: "Steven", age: 54};
+var object2 = {name: "Tamir", age: 54};
+
+console.log(key_value_check (object1, object2))
+
+var object1 = {name: "Steven", age: 50};
+var object2 = {name: "Tamir", age: 54};
+
+console.log(key_value_check (object1, object2))
+
+var object1 = {job: "Teacher", location: "Maui"};
+var object2 = {name: "Tamir", age: 54};
+
+console.log(key_value_check (object1, object2))
+
+var object1 = {friend: "Tamir", age: 30};
+var object2 = {name: "Tamir", age: 54};
+
+console.log(key_value_check (object1, object2))
