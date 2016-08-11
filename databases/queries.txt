@@ -1,0 +1,59 @@
+RELEASE 2
+1. Display the information in one table.
+query:
+SELECT * FROM animals;
+output:
+1|lion|1|2
+2|rattle snake|1|1
+3|polar bear|1|5
+4|black bear|3|3
+
+2. Update an item that meets some condition.
+query:
+UPDATE animals SET habitat_code = 3
+WHERE habitat_code = 4;
+
+3. Display the information in both tables using one query.
+query:
+SELECT * FROM animals, foods, habitats
+WHERE animals.diet_code = foods.id
+AND animals.habitat_code = habitats.id;
+output:
+1|lion|1|2|1|carnivore|2|plains
+2|rattle snake|1|1|1|carnivore|1|desert
+3|polar bear|1|5|1|carnivore|5|arctic
+4|black bear|3|3|3|omnivore|3|mountians
+
+4. Display a narrower selection of columns.
+query:
+SELECT animals.species, foods.feeding_behavior,  habitats.environment
+FROM animals 
+INNER JOIN foods ON animals.diet_code = foods.id
+INNER JOIN habitats ON animals.habitat_code = habitats.id;
+output:
+lion|carnivore|plains
+rattle snake|carnivore|desert
+polar bear|carnivore|arctic
+black bear|omnivore|mountians
+output:
+lion|carnivore|plains
+rattle snake|carnivore|desert
+polar bear|carnivore|arctic
+black bear|omnivore|mountians
+
+5. Delete an item that meets some condition.
+query:
+DELETE FROM habitats where environment = "rain forest";
+
+RELEASE3
+query:
+SELECT animals.species, foods.feeding_behavior
+FROM animals 
+LEFT JOIN foods ON animals.diet_code = foods.id;
+output:
+lion|carnivore
+rattle snake|carnivore
+polar bear|carnivore
+black bear|omnivore
+
+
