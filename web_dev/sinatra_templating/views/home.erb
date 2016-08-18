@@ -8,9 +8,16 @@
   <p>Welcome to the student management system.</p>
   <p><a href="ny">New York</a></p>
   <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>Click <a href="campus/new">here</a> to create a new campus.</p>
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+  </ul>
+  <p>Campus List</p>
+  <ul>
+    <% @campus.each do |campus| %>
+      <li><%= campus['short_name'] %>, <%= campus['long_name'] %></li>
     <% end %>
   </ul>
 </body>
