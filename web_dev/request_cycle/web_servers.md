@@ -1,0 +1,9 @@
+What are some of the key design philosophies of the Linux operating system?
+Linux is a multiuser, multitasking system with a full set of UNIX-compatible tools. Its file system adheres to traditional UNIX semantics, and it fully implements the standard UNIX networking model. Linux is designed to be compliant with the relevant POSIX documents; at least two Linux distributions have achieved official POSIX certification. The Linux programming interface adheres to the SVR4 UNIX semantics, rather than to BSD behavior. As PCs became more powerful and as memory and hard disks became cheaper, the original, minimalist Linux kernels grew to implement more UNIX functionality. Speed and efficiency are still important design goals, but much recent and current work on Linux has concentrated on a third major design goal: standardization. One of the prices paid for the diversity of UNIX implementations currently available is that source code written for one may not necessarily compile or run correctly on another. Even when the same system calls are present on two different UNIX systems, they do not necessarily behave in exactly the same way. Linux is designed to be compliant with the relevant POSIX documents; at least two Linux distributions have achieved official POSIX certification.
+
+
+What, according to your research, are the advantages of using a VPS?
+Cost, having a dedicated server, customization
+
+Why is it considered a bad idea to run programs as the root user on a Linux system?
+The root account is the most privileged on the system and has absolute power over it (i.e., complete access to all files and commands). Among root's powers are the ability to modify the system in any way desired and to grant and revoke access permissions (i.e., the ability to read, modify and execute specific files and directories) for other users, including any of those that are by default reserved for root.
